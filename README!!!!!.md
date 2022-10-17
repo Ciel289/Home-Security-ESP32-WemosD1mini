@@ -4,7 +4,7 @@ ESP32, WemosD1mini, NRF24L01, HC-SRC501
 
 Libaries
 Line -- https://github.com/TridentTD/TridentTD_LineNotify
-RF24Network -- https://github.com/nRF24/RF24Network
+\nRF24Network -- https://github.com/nRF24/RF24Network
 
 
 credit
