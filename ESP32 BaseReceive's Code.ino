@@ -9,9 +9,9 @@
 #include <RF24Network.h>
 #include <SPI.h>
 #include <printf.h>
-RF24 radio(4, 5);              // nRF24L01 (CE,CSN) (7,8)--Arduino || (4,5)--ESP32
+RF24 radio(4, 5);              // nRF24L01 (CE,CSN) (7, 8)--Arduino || (4, 5)--ESP32
 RF24Network network(radio);      // Include the radio in the network
-const uint16_t this_node = 00;   // Address of our node in Octal format ( 04,031, etc)
+const uint16_t this_node = 00;   // Address of our node in Octal format ( 04, 031, etc)
 
 
 #include <TridentTD_LineNotify.h>
