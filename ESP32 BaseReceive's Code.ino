@@ -65,46 +65,22 @@ struct data01 data01;
 
 void loop() {
   //  Recive data
+  dataRX.room = NULL;
+  dataRX.alert = false;
   network.update();
   while ( network.available() ) {
     RF24NetworkHeader header01; 
     network.read(header01, &data01, sizeof(data01));
   }  
-  lineAlert();  // Call Function for send to chat
-  data01.alert = false; // Set false for next loop
-
-}
-
-
-void lineAlert() {
-  switch (data01.room) {
-    case (1):
-      if (data01.alert) {
-        LINE.notify("Detect at Room1!");
-        Serial.println("Detect at Room1!");
+ if (dataRX.alert) {
+    for (byte i = 1; i <= 4; i++) {
+      if (dataRX.room == i) {
+          Serial.println("Detected at Room" + String(i) + "! \t");
+          LINE.notify("Detected at Room" + String(i) + "!");
       }
-      break;
-
-    case (2):
-      if (data01.alert) {
-        LINE.notify("Detect at Room2!");
-        Serial.println("Detect at Room2!");
-      }
-      break;
-
-    case (3):
-      if (data01.alert) {
-        LINE.notify("Detect at Room3!");
-        Serial.println("Detect at Room3!");
-      }
-      break;
-
-    case (4):
-      if (data01.alert) {
-        LINE.notify("Detect at Room4!");
-        Serial.println("Detect at Room4!");
-      }
-      break;
+    }
   }
 }
+
+
 
